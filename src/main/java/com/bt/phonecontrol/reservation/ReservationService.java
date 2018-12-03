@@ -69,7 +69,7 @@ public class ReservationService {
 
         List<Reservation> reservations = reservationRepository.findReservationByDeviceIdAndReturnedDateIsNull(deviceId);
 
-        if (reservations != null || !reservations.isEmpty()) {
+        if (reservations != null && !reservations.isEmpty()) {
             log.error("Can´t add a new reservation before return this device id {}", deviceId);
             return;
         }
